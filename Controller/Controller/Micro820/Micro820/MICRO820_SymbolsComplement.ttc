@@ -1,0 +1,16 @@
+[BEGIN FB INPUTS]
+I1=micro820.micro820.prog1/lcd_rem_1.enable,0x450,BOOL
+I2=micro820.micro820.prog1/lcd_rem_1.line1,0x599,STRING
+I3=micro820.micro820.prog1/lcd_rem_1.line2,0x5BC,STRING
+I4=micro820.micro820.prog1/lcd_rem_1.line3,0x602,STRING
+I5=micro820.micro820.prog1/lcd_rem_1.line4,0x5DF,STRING
+I6=micro820.micro820.prog1/ton_1.in,0x18B8,BOOL
+I7=micro820.micro820.prog1/ton_1.pt,0x48C,TIME
+I8=micro820.micro820.prog1/ton_2.in,0x18B8,BOOL
+I9=micro820.micro820.prog1/ton_2.pt,0x490,TIME
+I10=micro820.micro820.prog1/lcd_rem_1.font,0x18C4,UDINT
+I11=micro820.micro820.prog1/lcd_rem_1.line5,0x18CC,STRING
+I12=micro820.micro820.prog1/lcd_rem_1.line6,0x18CC,STRING
+I13=micro820.micro820.prog1/lcd_rem_1.line7,0x18CC,STRING
+I14=micro820.micro820.prog1/lcd_rem_1.line8,0x18CC,STRING
+[END]

@@ -1,0 +1,383 @@
+PROGRAM Prog1
+#info= QLD
+BOF
+
+
+(**)
+
+SOR  [0,1] (**) (**)  
+ BST  XIP  [1,0] (*_IO_EM_DI_00*) (*prx forward*)
+   NXB  XIP  [1,1] (*_IO_EM_DI_01*) (*prx forward safety*)
+ BND
+  
+ BST  XIO  [2,0] (*M10*) (*reverse function enebled*)  OTS  [3,0] (*M00*) (*forward direction*)
+   NXB  
+ BST  OTR  [2,1] (*M01*) (*reverse direction*)
+   NXB  
+ BST  OTR  [2,2] (*_IO_EM_DO_02*) (*cylinder*)
+   NXB  
+ BST  XIO  [2,3] (*M10*) (*reverse function enebled*)  XIO  [3,3] (*M05*) (*stopped*)  OTS  [4,3] (*M06*) (*manual timer start*)
+   NXB  
+ BST  XIC  [2,4] (*M02*) (*reset function*)  OTR  [3,4] (*M02*) (*reset function*)
+   NXB  XIC  [2,5] (*M10*) (*reverse function enebled*)  
+ BST  OTR  [3,5] (*M10*) (*reverse function enebled*)
+   NXB  OTS  [3,6] (*M05*) (*stopped*)
+ BND
+
+ BND
+
+ BND
+
+ BND
+
+ BND
+
+ BND
+
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,9] (**) (**)  
+ BST  XIP  [1,0] (*_IO_EM_DI_02*) (*prx reverse*)
+   NXB  XIP  [1,1] (*_IO_EM_DI_03*) (*prx reverse safety*)
+ BND
+  
+ BST  OTS  [2,0] (*M01*) (*reverse direction*)
+   NXB  
+ BST  OTR  [2,1] (*M00*) (*forward direction*)
+   NXB  
+ BST  OTS  [2,2] (*_IO_EM_DO_02*) (*cylinder*)
+   NXB  OTS  [2,3] (*M06*) (*manual timer start*)
+ BND
+
+ BND
+
+ BND
+
+EOR [3,0]
+
+
+(**)
+
+SOR  [0,14] (**) (**)  
+ BST  XIC  [1,0] (*_IO_EM_DI_00*) (*prx forward*)
+   NXB  XIC  [1,1] (*_IO_EM_DI_01*) (*prx forward safety*)
+ BND
+  XIP  [2,0] (*M01*) (*reverse direction*)  
+ BST  OTR  [3,0] (*M03*) (*run*)
+   NXB  
+ BST  OTS  [3,1] (*M05*) (*stopped*)
+   NXB  OTS  [3,2] (*M15*) (*error 3 bit*)
+ BND
+
+ BND
+
+EOR [4,0]
+
+
+(**)
+
+SOR  [0,18] (**) (**)  
+ BST  XIC  [1,0] (*_IO_EM_DI_02*) (*prx reverse*)
+   NXB  XIC  [1,1] (*_IO_EM_DI_03*) (*prx reverse safety*)
+ BND
+  XIP  [2,0] (*M00*) (*forward direction*)  
+ BST  OTR  [3,0] (*M03*) (*run*)
+   NXB  
+ BST  OTS  [3,1] (*M05*) (*stopped*)
+   NXB  OTS  [3,2] (*M15*) (*error 3 bit*)
+ BND
+
+ BND
+
+EOR [4,0]
+
+
+(**)
+
+SOR  [0,22] (**) (**)  
+ BST  XIP  [1,0] (*_IO_EM_DI_00*) (*prx forward*)
+   NXB  
+ BST  XIP  [1,1] (*_IO_EM_DI_02*) (*prx reverse*)
+   NXB  
+ BST  XIP  [1,2] (*_IO_EM_DI_01*) (*prx forward safety*)
+   NXB  XIP  [1,3] (*_IO_EM_DI_03*) (*prx reverse safety*)
+ BND
+
+ BND
+
+ BND
+  OTR  [2,0] (*M03*) (*run*)
+EOR [3,0]
+
+
+(**)
+
+SOR  [0,27] (**) (**)  XIP  [1,0] (*_IO_EM_DI_00*) (*prx forward*)  
+ BST  OTS  [2,0] (*M13*) (*prx forward okay*)
+   NXB  OTR  [2,1] (*M14*) (*prx reverse okay*)
+ BND
+
+EOR [3,0]
+
+
+(**)
+
+SOR  [0,30] (**) (**)  XIO  [1,0] (*M08*) (*error 1 bit*)  XIP  [2,0] (*_IO_EM_DI_01*) (*prx forward safety*)  XIO  [3,0] (*M13*) (*prx forward okay*)  OTS  [4,0] (*M08*) (*error 1 bit*)
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,32] (**) (**)  XIC  [1,0] (*M08*) (*error 1 bit*)  XIP  [2,0] (*_IO_EM_DI_00*) (*prx forward*)  XIC  [3,0] (*M13*) (*prx forward okay*)  OTR  [4,0] (*M08*) (*error 1 bit*)
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,34] (**) (**)  XIP  [1,0] (*_IO_EM_DI_02*) (*prx reverse*)  
+ BST  OTS  [2,0] (*M14*) (*prx reverse okay*)
+   NXB  OTR  [2,1] (*M13*) (*prx forward okay*)
+ BND
+
+EOR [3,0]
+
+
+(**)
+
+SOR  [0,37] (**) (**)  XIO  [1,0] (*M09*) (*error 2 bit*)  XIP  [2,0] (*_IO_EM_DI_03*) (*prx reverse safety*)  XIO  [3,0] (*M14*) (*prx reverse okay*)  OTS  [4,0] (*M09*) (*error 2 bit*)
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,39] (**) (**)  XIC  [1,0] (*M09*) (*error 2 bit*)  XIP  [2,0] (*_IO_EM_DI_02*) (*prx reverse*)  XIC  [3,0] (*M14*) (*prx reverse okay*)  OTR  [4,0] (*M09*) (*error 2 bit*)
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,41] (**) (**)  XIP  [1,0] (*_IO_EM_DI_07*) (*reverse*)  XIO  [2,0] (*_IO_EM_DI_00*) (*prx forward*)  XIO  [3,0] (*_IO_EM_DI_01*) (*prx forward safety*)  OTS  [4,0] (*M10*) (*reverse function enebled*)
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,43] (**) (**)  XIC  [1,0] (*M10*) (*reverse function enebled*)  XIO  [2,0] (*_IO_EM_DI_00*) (*prx forward*)  XIO  [3,0] (*_IO_EM_DI_01*) (*prx forward safety*)  
+ BST  OTS  [4,0] (*M03*) (*run*)
+   NXB  
+ BST  OTS  [4,1] (*M01*) (*reverse direction*)
+   NXB  OTR  [4,2] (*M00*) (*forward direction*)
+ BND
+
+ BND
+
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,47] (**) (**)  XIC  [1,0] (*_IO_EM_DI_08*) (*reset*)  
+ BST  OTS  [2,0] (*M02*) (*reset function*)
+   NXB  OTR  [2,1] (*M15*) (*error 3 bit*)
+ BND
+
+EOR [3,0]
+
+
+(**)
+
+SOR  [0,50] (**) (**)  
+ BST  XIP  [1,0] (*M02*) (*reset function*)
+   NXB  XIP  [1,1] (*M10*) (*reverse function enebled*)
+ BND
+  OTR  [2,0] (*M05*) (*stopped*)
+EOR [3,0]
+
+
+(**)
+
+SOR  [0,53] (**) (**)  XIP  [1,0] (*M02*) (*reset function*)  
+ BST  XIC  [2,0] (*M10*) (*reverse function enebled*)  OTR  [3,0] (*M10*) (*reverse function enebled*)
+   NXB  
+ BST  
+ BST  XIC  [2,1] (*_IO_EM_DI_00*) (*prx forward*)
+   NXB  XIC  [2,2] (*_IO_EM_DI_01*) (*prx forward safety*)
+ BND
+  
+ BST  OTS  [3,1] (*M06*) (*manual timer start*)
+   NXB  
+ BST  OTS  [3,2] (*M00*) (*forward direction*)
+   NXB  OTR  [3,3] (*M02*) (*reset function*)
+ BND
+
+ BND
+
+   NXB  XIO  [2,4] (*_IO_EM_DI_00*) (*prx forward*)  XIO  [3,4] (*_IO_EM_DI_01*) (*prx forward safety*)  
+ BST  
+ BST  OTS  [4,4] (*M01*) (*reverse direction*)
+   NXB  OTS  [4,5] (*M03*) (*run*)
+ BND
+
+   NXB  OTR  [4,6] (*M00*) (*forward direction*)
+ BND
+
+ BND
+
+ BND
+
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,61] (**) (**)  XIC  [1,0] (*M03*) (*run*)  XIO  [2,0] (*M05*) (*stopped*)  XIO  [3,0] (*_IO_EM_DI_10*) (*pause*)  
+ BST  XIC  [4,0] (*M00*) (*forward direction*)  OTE  [5,0] (*_IO_EM_DO_00*) (*motor forward*)
+   NXB  
+ BST  XIC  [4,1] (*M01*) (*reverse direction*)  OTE  [5,1] (*_IO_EM_DO_01*) (*motor reverse*)
+   NXB  OTE  [4,2] (*M11*) (*nozzel enabled*)
+ BND
+
+ BND
+
+EOR [6,0]
+
+
+(**)
+
+SOR  [0,65] (**) (**)  XIP  [1,0] (*_IO_EM_DI_04*) (*prx line*)  XIO  [2,0] (*M05*) (*stopped*)  OTS  [3,0] (*M04*) (*line passed*)
+EOR [4,0]
+
+
+(**)
+
+SOR  [0,67] (**) (**)  XIO  [1,0] (*_IO_EM_DI_06*) (*Manual Mode*)  OTE  [2,0] (*M12*) (*auto mode enabled*)
+EOR [3,0]
+
+
+(**)
+
+SOR  [0,69] (**) (**)  XIC  [1,0] (*M04*) (*line passed*)  XIC  [2,0] (*M12*) (*auto mode enabled*)  XIO  [3,0] (*M10*) (*reverse function enebled*)  XIO  [4,0] (*M05*) (*stopped*)  FB  [5,0] (*TON*) (*TON_1*) ( (*IN:IN*)(**) (**)  , (*PT:PT*)(*TIMER_AUTO*) (**) ; (*Q:Q*)(**) (**)  , (*ET:ET*)(**) (**) )  
+ BST  OTS  [8,0] (*M03*) (*run*)
+   NXB  OTR  [8,1] (*M04*) (*line passed*)
+ BND
+
+EOR [9,0]
+
+
+(**)
+
+SOR  [0,72] (**) (**)  XIO  [1,0] (*M12*) (*auto mode enabled*)  XIC  [2,0] (*M06*) (*manual timer start*)  FB  [3,0] (*TON*) (*TON_2*) ( (*IN:IN*)(**) (**)  , (*PT:PT*)(*TIMER_MANUAL*) (**) ; (*Q:Q*)(**) (**)  , (*ET:ET*)(**) (**) )  
+ BST  OTS  [6,0] (*M03*) (*run*)
+   NXB  OTR  [6,1] (*M06*) (*manual timer start*)
+ BND
+
+EOR [7,0]
+
+
+(**)
+
+SOR  [0,75] (**) (**)  XIF  [1,0] (*_IO_EM_DI_05*) (*stop*)  OTS  [2,0] (*M05*) (*stopped*)
+EOR [3,0]
+
+
+(**)
+
+SOR  [0,77] (**) (**)  XIC  [1,0] (*M11*) (*nozzel enabled*)  XIO  [2,0] (*M10*) (*reverse function enebled*)  XIO  [3,0] (*M02*) (*reset function*)  
+ BST  XIC  [4,0] (*NOZZEL_1_EN*) (*enable nozzel 1*)  OTE  [5,0] (*_IO_EM_DO_03*) (*nozzel 1 solonoid*)
+   NXB  XIC  [4,1] (*NOZZEL_2_EN*) (*enable nozzel 2*)  OTE  [5,1] (*_IO_EM_DO_04*) (*nozzel 2 solonoid*)
+ BND
+
+EOR [6,0]
+
+
+(**)
+
+SOR  [0,80] (**) (**)  XIC  [1,0] (*M05*) (*stopped*)  FB  [2,0] (*ANY_TO_STRING*) (*1*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*ST_STOPPED*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*LCD_LINE2*) (**) )
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,83] (**) (**)  XIO  [1,0] (*M12*) (*auto mode enabled*)  FB  [2,0] (*ANY_TO_STRING*) (*1*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*ST_MANUAL*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*LCD_LINE1*) (**) )
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,86] (**) (**)  XIC  [1,0] (*M12*) (*auto mode enabled*)  FB  [2,0] (*ANY_TO_STRING*) (*1*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*ST_AUTO*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*LCD_LINE1*) (**) )
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,89] (**) (**)  XIO  [1,0] (*M05*) (*stopped*)  FB  [2,0] (*ANY_TO_STRING*) (*1*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*ST_RUNNING*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*LCD_LINE2*) (**) )
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,92] (**) (**)  XIC  [1,0] (*M12*) (*auto mode enabled*)  XIC  [2,0] (*M03*) (*run*)  XIO  [3,0] (*M05*) (*stopped*)  XIP  [4,0] (*_IO_EM_DI_04*) (*prx line*)  OTS  [5,0] (*M07*) (*error 0 bit*)
+EOR [6,0]
+
+
+(**)
+
+SOR  [0,94] (**) (**)  XIC  [1,0] (*M07*) (*error 0 bit*)  XIP  [2,0] (*_IO_EM_DI_04*) (*prx line*)  XIO  [3,0] (*M03*) (*run*)  OTR  [4,0] (*M07*) (*error 0 bit*)
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,96] (**) (**)  XIC  [1,0] (*M07*) (*error 0 bit*)  FB  [2,0] (*ANY_TO_STRING*) (*1*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*ST_ERROR_0*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*LCD_LINE4*) (**) )
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,99] (**) (**)  XIO  [1,0] (*M15*) (*error 3 bit*)  XIC  [2,0] (*M08*) (*error 1 bit*)  FB  [3,0] (*ANY_TO_STRING*) (*1*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*ST_ERROR_1*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*LCD_LINE4*) (**) )
+EOR [6,0]
+
+
+(**)
+
+SOR  [0,102] (**) (**)  XIO  [1,0] (*M15*) (*error 3 bit*)  XIC  [2,0] (*M09*) (*error 2 bit*)  FB  [3,0] (*ANY_TO_STRING*) (*1*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*ST_ERROR_2*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*LCD_LINE4*) (**) )
+EOR [6,0]
+
+
+(**)
+
+SOR  [0,105] (**) (**)  XIC  [1,0] (*M15*) (*error 3 bit*)  FB  [2,0] (*ANY_TO_STRING*) (*1*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*ST_ERROR_3*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*LCD_LINE4*) (**) )
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,108] (**) (**)  XIO  [1,0] (*M08*) (*error 1 bit*)  XIO  [2,0] (*M09*) (*error 2 bit*)  XIO  [3,0] (*M15*) (*error 3 bit*)  FB  [4,0] (*ANY_TO_STRING*) (*1*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*ST_EMPTY*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*LCD_LINE4*) (**) )
+EOR [7,0]
+
+
+(**)
+
+SOR  [0,111] (**) (**)  XIC  [1,0] (*_IO_EM_DI_10*) (*pause*)  FB  [2,0] (*ANY_TO_STRING*) (*1*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*ST_PAUSED*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*LCD_LINE3*) (**) )
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,114] (**) (**)  XIO  [1,0] (*_IO_EM_DI_10*) (*pause*)  FB  [2,0] (*ANY_TO_STRING*) (*1*) ( (*EN:EN*)(**) (**)  , (*i1:*)(*ST_EMPTY*) (**) ; (*ENO:ENO*)(**) (**)  , (*o1:*)(*LCD_LINE3*) (**) )
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,117] (**) (**)  FB  [1,0] (*LCD_REM*) (*LCD_REM_1*) ( (*Enable:*)(**) (**)  , (*Font:*)(**) (**)  , (*Line1:*)(*LCD_LINE1*) (**)  , (*Line2:*)(*LCD_LINE2*) (**)  , (*Line3:*)(*LCD_LINE3*) (**)  , (*Line4:*)(*LCD_LINE4*) (**)  , (*Line5:*)(**) (**)  , (*Line6:*)(**) (**)  , (*Line7:*)(**) (**)  , (*Line8:*)(**) (**) ; (*LCD_REM:*)(**) (**)  , (*Sts:*)(**) (**) )
+EOR [4,0]
+EOF
+#end_info
+#info= ID_MAX
+NextId=1
+#end_info
+END_PROGRAM

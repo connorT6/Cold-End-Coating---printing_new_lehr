@@ -1,0 +1,887 @@
+(****** QuickLD compiler *******************************)
+(****** Copyright Rockwell Automation Canada, Ltd ******)
+(****** ST *********************************************)
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,1
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+; (*Pulse detection on : _IO_EM_DI_00 with __MEMO__1___IO_EM_DI_00 *)
+__EDTB1 := (_IO_EM_DI_00 AND NOT(__MEMO__1___IO_EM_DI_00)) ;
+; (*Pulse detection on : _IO_EM_DI_01 with __MEMO__2___IO_EM_DI_01 *)
+__EDTB2 := (_IO_EM_DI_01 AND NOT(__MEMO__2___IO_EM_DI_01)) ;
+__EDTB3 := (__EDTB1 OR __EDTB2) ;
+__EDTB4 := __EDTB3 AND NOT(M10) ;
+IF __EDTB4 THEN
+(*Set coil*)
+M00 := TRUE ;
+END_IF ;
+__EDTB5 := __EDTB3 ;
+IF __EDTB5 THEN
+(*Reset coil*)
+M01 := FALSE ;
+END_IF ;
+__EDTB6 := __EDTB3 ;
+IF __EDTB6 THEN
+(*Reset coil*)
+_IO_EM_DO_02 := FALSE ;
+END_IF ;
+__EDTB7 := __EDTB3 AND NOT(M10) AND NOT(M05) ;
+IF __EDTB7 THEN
+(*Set coil*)
+M06 := TRUE ;
+END_IF ;
+__EDTB8 := __EDTB3 AND M02 ;
+IF __EDTB8 THEN
+(*Reset coil*)
+M02 := FALSE ;
+END_IF ;
+__EDTB9 := __EDTB3 AND M10 ;
+__EDTB10 := __EDTB9 ;
+IF __EDTB10 THEN
+(*Reset coil*)
+M10 := FALSE ;
+END_IF ;
+__EDTB11 := __EDTB9 ;
+IF __EDTB11 THEN
+(*Set coil*)
+M05 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__1___IO_EM_DI_00 := _IO_EM_DI_00 ; (*Pulse detection on : _IO_EM_DI_00 with __MEMO__1___IO_EM_DI_00 *)
+__MEMO__2___IO_EM_DI_01 := _IO_EM_DI_01 ; (*Pulse detection on : _IO_EM_DI_01 with __MEMO__2___IO_EM_DI_01 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,9
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+; (*Pulse detection on : _IO_EM_DI_02 with __MEMO__3___IO_EM_DI_02 *)
+__EDTB12 := (_IO_EM_DI_02 AND NOT(__MEMO__3___IO_EM_DI_02)) ;
+; (*Pulse detection on : _IO_EM_DI_03 with __MEMO__4___IO_EM_DI_03 *)
+__EDTB13 := (_IO_EM_DI_03 AND NOT(__MEMO__4___IO_EM_DI_03)) ;
+__EDTB14 := (__EDTB12 OR __EDTB13) ;
+__EDTB15 := __EDTB14 ;
+IF __EDTB15 THEN
+(*Set coil*)
+M01 := TRUE ;
+END_IF ;
+__EDTB16 := __EDTB14 ;
+IF __EDTB16 THEN
+(*Reset coil*)
+M00 := FALSE ;
+END_IF ;
+__EDTB17 := __EDTB14 ;
+IF __EDTB17 THEN
+(*Set coil*)
+_IO_EM_DO_02 := TRUE ;
+END_IF ;
+__EDTB18 := __EDTB14 ;
+IF __EDTB18 THEN
+(*Set coil*)
+M06 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__3___IO_EM_DI_02 := _IO_EM_DI_02 ; (*Pulse detection on : _IO_EM_DI_02 with __MEMO__3___IO_EM_DI_02 *)
+__MEMO__4___IO_EM_DI_03 := _IO_EM_DI_03 ; (*Pulse detection on : _IO_EM_DI_03 with __MEMO__4___IO_EM_DI_03 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,14
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB19 := _IO_EM_DI_00 ;
+__EDTB20 := _IO_EM_DI_01 ;
+; (*Pulse detection on : M01 with __MEMO__5__M01 *)
+__EDTB21 := (__EDTB19 OR __EDTB20) AND (M01 AND NOT(__MEMO__5__M01)) ;
+__EDTB22 := __EDTB21 ;
+IF __EDTB22 THEN
+(*Reset coil*)
+M03 := FALSE ;
+END_IF ;
+__EDTB23 := __EDTB21 ;
+IF __EDTB23 THEN
+(*Set coil*)
+M05 := TRUE ;
+END_IF ;
+__EDTB24 := __EDTB21 ;
+IF __EDTB24 THEN
+(*Set coil*)
+M15 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__5__M01 := M01 ; (*Pulse detection on : M01 with __MEMO__5__M01 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,18
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB25 := _IO_EM_DI_02 ;
+__EDTB26 := _IO_EM_DI_03 ;
+; (*Pulse detection on : M00 with __MEMO__6__M00 *)
+__EDTB27 := (__EDTB25 OR __EDTB26) AND (M00 AND NOT(__MEMO__6__M00)) ;
+__EDTB28 := __EDTB27 ;
+IF __EDTB28 THEN
+(*Reset coil*)
+M03 := FALSE ;
+END_IF ;
+__EDTB29 := __EDTB27 ;
+IF __EDTB29 THEN
+(*Set coil*)
+M05 := TRUE ;
+END_IF ;
+__EDTB30 := __EDTB27 ;
+IF __EDTB30 THEN
+(*Set coil*)
+M15 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__6__M00 := M00 ; (*Pulse detection on : M00 with __MEMO__6__M00 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,22
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+; (*Pulse detection on : _IO_EM_DI_00 with __MEMO__7___IO_EM_DI_00 *)
+__EDTB31 := (_IO_EM_DI_00 AND NOT(__MEMO__7___IO_EM_DI_00)) ;
+; (*Pulse detection on : _IO_EM_DI_02 with __MEMO__8___IO_EM_DI_02 *)
+__EDTB32 := (_IO_EM_DI_02 AND NOT(__MEMO__8___IO_EM_DI_02)) ;
+; (*Pulse detection on : _IO_EM_DI_01 with __MEMO__9___IO_EM_DI_01 *)
+__EDTB33 := (_IO_EM_DI_01 AND NOT(__MEMO__9___IO_EM_DI_01)) ;
+; (*Pulse detection on : _IO_EM_DI_03 with __MEMO__A___IO_EM_DI_03 *)
+__EDTB34 := (_IO_EM_DI_03 AND NOT(__MEMO__A___IO_EM_DI_03)) ;
+__EDTB35 := (__EDTB33 OR __EDTB34) ;
+__EDTB36 := (__EDTB32 OR __EDTB35) ;
+__EDTB37 := (__EDTB31 OR __EDTB36) ;
+IF __EDTB37 THEN
+(*Reset coil*)
+M03 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__7___IO_EM_DI_00 := _IO_EM_DI_00 ; (*Pulse detection on : _IO_EM_DI_00 with __MEMO__7___IO_EM_DI_00 *)
+__MEMO__8___IO_EM_DI_02 := _IO_EM_DI_02 ; (*Pulse detection on : _IO_EM_DI_02 with __MEMO__8___IO_EM_DI_02 *)
+__MEMO__9___IO_EM_DI_01 := _IO_EM_DI_01 ; (*Pulse detection on : _IO_EM_DI_01 with __MEMO__9___IO_EM_DI_01 *)
+__MEMO__A___IO_EM_DI_03 := _IO_EM_DI_03 ; (*Pulse detection on : _IO_EM_DI_03 with __MEMO__A___IO_EM_DI_03 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,27
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+; (*Pulse detection on : _IO_EM_DI_00 with __MEMO__B___IO_EM_DI_00 *)
+__EDTB38 := (_IO_EM_DI_00 AND NOT(__MEMO__B___IO_EM_DI_00)) ;
+__EDTB39 := __EDTB38 ;
+IF __EDTB39 THEN
+(*Set coil*)
+M13 := TRUE ;
+END_IF ;
+__EDTB40 := __EDTB38 ;
+IF __EDTB40 THEN
+(*Reset coil*)
+M14 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__B___IO_EM_DI_00 := _IO_EM_DI_00 ; (*Pulse detection on : _IO_EM_DI_00 with __MEMO__B___IO_EM_DI_00 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,30
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+; (*Pulse detection on : _IO_EM_DI_01 with __MEMO__C___IO_EM_DI_01 *)
+__EDTB41 := NOT(M08) AND (_IO_EM_DI_01 AND NOT(__MEMO__C___IO_EM_DI_01)) AND NOT(M13) ;
+IF __EDTB41 THEN
+(*Set coil*)
+M08 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__C___IO_EM_DI_01 := _IO_EM_DI_01 ; (*Pulse detection on : _IO_EM_DI_01 with __MEMO__C___IO_EM_DI_01 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,32
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+; (*Pulse detection on : _IO_EM_DI_00 with __MEMO__D___IO_EM_DI_00 *)
+__EDTB42 := M08 AND (_IO_EM_DI_00 AND NOT(__MEMO__D___IO_EM_DI_00)) AND M13 ;
+IF __EDTB42 THEN
+(*Reset coil*)
+M08 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__D___IO_EM_DI_00 := _IO_EM_DI_00 ; (*Pulse detection on : _IO_EM_DI_00 with __MEMO__D___IO_EM_DI_00 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,34
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+; (*Pulse detection on : _IO_EM_DI_02 with __MEMO__E___IO_EM_DI_02 *)
+__EDTB43 := (_IO_EM_DI_02 AND NOT(__MEMO__E___IO_EM_DI_02)) ;
+__EDTB44 := __EDTB43 ;
+IF __EDTB44 THEN
+(*Set coil*)
+M14 := TRUE ;
+END_IF ;
+__EDTB45 := __EDTB43 ;
+IF __EDTB45 THEN
+(*Reset coil*)
+M13 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__E___IO_EM_DI_02 := _IO_EM_DI_02 ; (*Pulse detection on : _IO_EM_DI_02 with __MEMO__E___IO_EM_DI_02 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,37
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+; (*Pulse detection on : _IO_EM_DI_03 with __MEMO__F___IO_EM_DI_03 *)
+__EDTB46 := NOT(M09) AND (_IO_EM_DI_03 AND NOT(__MEMO__F___IO_EM_DI_03)) AND NOT(M14) ;
+IF __EDTB46 THEN
+(*Set coil*)
+M09 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__F___IO_EM_DI_03 := _IO_EM_DI_03 ; (*Pulse detection on : _IO_EM_DI_03 with __MEMO__F___IO_EM_DI_03 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,39
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+; (*Pulse detection on : _IO_EM_DI_02 with __MEMO__10___IO_EM_DI_02 *)
+__EDTB47 := M09 AND (_IO_EM_DI_02 AND NOT(__MEMO__10___IO_EM_DI_02)) AND M14 ;
+IF __EDTB47 THEN
+(*Reset coil*)
+M09 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__10___IO_EM_DI_02 := _IO_EM_DI_02 ; (*Pulse detection on : _IO_EM_DI_02 with __MEMO__10___IO_EM_DI_02 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,41
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+; (*Pulse detection on : _IO_EM_DI_07 with __MEMO__11___IO_EM_DI_07 *)
+__EDTB48 := (_IO_EM_DI_07 AND NOT(__MEMO__11___IO_EM_DI_07)) AND NOT(_IO_EM_DI_00) AND NOT(_IO_EM_DI_01) ;
+IF __EDTB48 THEN
+(*Set coil*)
+M10 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__11___IO_EM_DI_07 := _IO_EM_DI_07 ; (*Pulse detection on : _IO_EM_DI_07 with __MEMO__11___IO_EM_DI_07 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,43
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB49 := M10 AND NOT(_IO_EM_DI_00) AND NOT(_IO_EM_DI_01) ;
+__EDTB50 := __EDTB49 ;
+IF __EDTB50 THEN
+(*Set coil*)
+M03 := TRUE ;
+END_IF ;
+__EDTB51 := __EDTB49 ;
+IF __EDTB51 THEN
+(*Set coil*)
+M01 := TRUE ;
+END_IF ;
+__EDTB52 := __EDTB49 ;
+IF __EDTB52 THEN
+(*Reset coil*)
+M00 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,47
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB53 := _IO_EM_DI_08 ;
+__EDTB54 := __EDTB53 ;
+IF __EDTB54 THEN
+(*Set coil*)
+M02 := TRUE ;
+END_IF ;
+__EDTB55 := __EDTB53 ;
+IF __EDTB55 THEN
+(*Reset coil*)
+M15 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,50
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+; (*Pulse detection on : M02 with __MEMO__12__M02 *)
+__EDTB56 := (M02 AND NOT(__MEMO__12__M02)) ;
+; (*Pulse detection on : M10 with __MEMO__13__M10 *)
+__EDTB57 := (M10 AND NOT(__MEMO__13__M10)) ;
+__EDTB58 := (__EDTB56 OR __EDTB57) ;
+IF __EDTB58 THEN
+(*Reset coil*)
+M05 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__12__M02 := M02 ; (*Pulse detection on : M02 with __MEMO__12__M02 *)
+__MEMO__13__M10 := M10 ; (*Pulse detection on : M10 with __MEMO__13__M10 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,53
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+; (*Pulse detection on : M02 with __MEMO__14__M02 *)
+__EDTB59 := (M02 AND NOT(__MEMO__14__M02)) ;
+__EDTB60 := __EDTB59 AND M10 ;
+IF __EDTB60 THEN
+(*Reset coil*)
+M10 := FALSE ;
+END_IF ;
+__EDTB61 := __EDTB59 AND _IO_EM_DI_00 ;
+__EDTB62 := __EDTB59 AND _IO_EM_DI_01 ;
+__EDTB63 := (__EDTB61 OR __EDTB62) ;
+__EDTB64 := __EDTB63 ;
+IF __EDTB64 THEN
+(*Set coil*)
+M06 := TRUE ;
+END_IF ;
+__EDTB65 := __EDTB63 ;
+IF __EDTB65 THEN
+(*Set coil*)
+M00 := TRUE ;
+END_IF ;
+__EDTB66 := __EDTB63 ;
+IF __EDTB66 THEN
+(*Reset coil*)
+M02 := FALSE ;
+END_IF ;
+__EDTB67 := __EDTB59 AND NOT(_IO_EM_DI_00) AND NOT(_IO_EM_DI_01) ;
+__EDTB68 := __EDTB67 ;
+IF __EDTB68 THEN
+(*Set coil*)
+M01 := TRUE ;
+END_IF ;
+__EDTB69 := __EDTB67 ;
+IF __EDTB69 THEN
+(*Set coil*)
+M03 := TRUE ;
+END_IF ;
+__EDTB70 := __EDTB67 ;
+IF __EDTB70 THEN
+(*Reset coil*)
+M00 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__14__M02 := M02 ; (*Pulse detection on : M02 with __MEMO__14__M02 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,61
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB71 := M03 AND NOT(M05) AND NOT(_IO_EM_DI_10) ;
+_IO_EM_DO_00 := __EDTB71 AND M00 ;
+_IO_EM_DO_01 := __EDTB71 AND M01 ;
+M11 := __EDTB71 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,65
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+; (*Pulse detection on : _IO_EM_DI_04 with __MEMO__15___IO_EM_DI_04 *)
+__EDTB72 := (_IO_EM_DI_04 AND NOT(__MEMO__15___IO_EM_DI_04)) AND NOT(M05) ;
+IF __EDTB72 THEN
+(*Set coil*)
+M04 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__15___IO_EM_DI_04 := _IO_EM_DI_04 ; (*Pulse detection on : _IO_EM_DI_04 with __MEMO__15___IO_EM_DI_04 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,67
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+M12 := NOT(_IO_EM_DI_06) ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,69
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+(* FB call: TON *)
+TON_1(M04 AND M12 AND NOT(M10) AND NOT(M05), TIMER_AUTO) ;
+__EDTB73 := TON_1.Q ;
+__EDTB74 := __EDTB73 ;
+IF __EDTB74 THEN
+(*Set coil*)
+M03 := TRUE ;
+END_IF ;
+__EDTB75 := __EDTB73 ;
+IF __EDTB75 THEN
+(*Reset coil*)
+M04 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,72
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+(* FB call: TON *)
+TON_2(NOT(M12) AND M06, TIMER_MANUAL) ;
+__EDTB76 := TON_2.Q ;
+__EDTB77 := __EDTB76 ;
+IF __EDTB77 THEN
+(*Set coil*)
+M03 := TRUE ;
+END_IF ;
+__EDTB78 := __EDTB76 ;
+IF __EDTB78 THEN
+(*Reset coil*)
+M06 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,75
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+; (*Fall detection on  : _IO_EM_DI_05 with __MEMO__16___IO_EM_DI_05 *)
+__EDTB79 := (__MEMO__16___IO_EM_DI_05 AND NOT(_IO_EM_DI_05)) ;
+IF __EDTB79 THEN
+(*Set coil*)
+M05 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__16___IO_EM_DI_05 := _IO_EM_DI_05 ; (*Fall detection on  : _IO_EM_DI_05 with __MEMO__16___IO_EM_DI_05 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,77
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB80 := M11 AND NOT(M10) AND NOT(M02) ;
+_IO_EM_DO_03 := __EDTB80 AND NOZZEL_1_EN ;
+_IO_EM_DO_04 := __EDTB80 AND NOZZEL_2_EN ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,80
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB81 := M05 ;
+IF __EDTB81 THEN
+LCD_LINE2 := ANY_TO_STRING(ST_STOPPED) ;
+END_IF ;
+__MO_ANY_TO_STRING_1 := __EDTB81 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,83
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB82 := NOT(M12) ;
+IF __EDTB82 THEN
+LCD_LINE1 := ANY_TO_STRING(ST_MANUAL) ;
+END_IF ;
+__MO_ANY_TO_STRING_2 := __EDTB82 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,86
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB83 := M12 ;
+IF __EDTB83 THEN
+LCD_LINE1 := ANY_TO_STRING(ST_AUTO) ;
+END_IF ;
+__MO_ANY_TO_STRING_3 := __EDTB83 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,89
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB84 := NOT(M05) ;
+IF __EDTB84 THEN
+LCD_LINE2 := ANY_TO_STRING(ST_RUNNING) ;
+END_IF ;
+__MO_ANY_TO_STRING_4 := __EDTB84 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,92
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+; (*Pulse detection on : _IO_EM_DI_04 with __MEMO__17___IO_EM_DI_04 *)
+__EDTB85 := M12 AND M03 AND NOT(M05) AND (_IO_EM_DI_04 AND NOT(__MEMO__17___IO_EM_DI_04)) ;
+IF __EDTB85 THEN
+(*Set coil*)
+M07 := TRUE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__17___IO_EM_DI_04 := _IO_EM_DI_04 ; (*Pulse detection on : _IO_EM_DI_04 with __MEMO__17___IO_EM_DI_04 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,94
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+; (*Pulse detection on : _IO_EM_DI_04 with __MEMO__18___IO_EM_DI_04 *)
+__EDTB86 := M07 AND (_IO_EM_DI_04 AND NOT(__MEMO__18___IO_EM_DI_04)) AND NOT(M03) ;
+IF __EDTB86 THEN
+(*Reset coil*)
+M07 := FALSE ;
+END_IF ;
+
+(*************** Code for the end of Rung **************)
+__MEMO__18___IO_EM_DI_04 := _IO_EM_DI_04 ; (*Pulse detection on : _IO_EM_DI_04 with __MEMO__18___IO_EM_DI_04 *)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,96
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB87 := M07 ;
+IF __EDTB87 THEN
+LCD_LINE4 := ANY_TO_STRING(ST_ERROR_0) ;
+END_IF ;
+__MO_ANY_TO_STRING_5 := __EDTB87 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,99
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB88 := NOT(M15) AND M08 ;
+IF __EDTB88 THEN
+LCD_LINE4 := ANY_TO_STRING(ST_ERROR_1) ;
+END_IF ;
+__MO_ANY_TO_STRING_6 := __EDTB88 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,102
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB89 := NOT(M15) AND M09 ;
+IF __EDTB89 THEN
+LCD_LINE4 := ANY_TO_STRING(ST_ERROR_2) ;
+END_IF ;
+__MO_ANY_TO_STRING_7 := __EDTB89 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,105
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB90 := M15 ;
+IF __EDTB90 THEN
+LCD_LINE4 := ANY_TO_STRING(ST_ERROR_3) ;
+END_IF ;
+__MO_ANY_TO_STRING_8 := __EDTB90 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,108
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB91 := NOT(M08) AND NOT(M09) AND NOT(M15) ;
+IF __EDTB91 THEN
+LCD_LINE4 := ANY_TO_STRING(ST_EMPTY) ;
+END_IF ;
+__MO_ANY_TO_STRING_9 := __EDTB91 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,111
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB92 := _IO_EM_DI_10 ;
+IF __EDTB92 THEN
+LCD_LINE3 := ANY_TO_STRING(ST_PAUSED) ;
+END_IF ;
+__MO_ANY_TO_STRING_10 := __EDTB92 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,114
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB93 := NOT(_IO_EM_DI_10) ;
+IF __EDTB93 THEN
+LCD_LINE3 := ANY_TO_STRING(ST_EMPTY) ;
+END_IF ;
+__MO_ANY_TO_STRING_11 := __EDTB93 ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,117
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+(* FB call: LCD_REM *)
+LCD_REM_1(TRUE, , LCD_LINE1, LCD_LINE2, LCD_LINE3, LCD_LINE4, , , , ) ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Code for the end of File **************)
+__GL __LG0000 ;
+
+
+
+(*************** Local Symbols table *******************)
+(* __MEMO__1___IO_EM_DI_00 *)
+(* __EDTB1 *)
+(* __MEMO__2___IO_EM_DI_01 *)
+(* __EDTB2 *)
+(* __EDTB3 *)
+(* __EDTB4 *)
+(* __EDTB5 *)
+(* __EDTB6 *)
+(* __EDTB7 *)
+(* __EDTB8 *)
+(* __EDTB9 *)
+(* __EDTB10 *)
+(* __EDTB11 *)
+(* __MEMO__3___IO_EM_DI_02 *)
+(* __EDTB12 *)
+(* __MEMO__4___IO_EM_DI_03 *)
+(* __EDTB13 *)
+(* __EDTB14 *)
+(* __EDTB15 *)
+(* __EDTB16 *)
+(* __EDTB17 *)
+(* __EDTB18 *)
+(* __EDTB19 *)
+(* __EDTB20 *)
+(* __MEMO__5__M01 *)
+(* __EDTB21 *)
+(* __EDTB22 *)
+(* __EDTB23 *)
+(* __EDTB24 *)
+(* __EDTB25 *)
+(* __EDTB26 *)
+(* __MEMO__6__M00 *)
+(* __EDTB27 *)
+(* __EDTB28 *)
+(* __EDTB29 *)
+(* __EDTB30 *)
+(* __MEMO__7___IO_EM_DI_00 *)
+(* __EDTB31 *)
+(* __MEMO__8___IO_EM_DI_02 *)
+(* __EDTB32 *)
+(* __MEMO__9___IO_EM_DI_01 *)
+(* __EDTB33 *)
+(* __MEMO__A___IO_EM_DI_03 *)
+(* __EDTB34 *)
+(* __EDTB35 *)
+(* __EDTB36 *)
+(* __EDTB37 *)
+(* __MEMO__B___IO_EM_DI_00 *)
+(* __EDTB38 *)
+(* __EDTB39 *)
+(* __EDTB40 *)
+(* __MEMO__C___IO_EM_DI_01 *)
+(* __EDTB41 *)
+(* __MEMO__D___IO_EM_DI_00 *)
+(* __EDTB42 *)
+(* __MEMO__E___IO_EM_DI_02 *)
+(* __EDTB43 *)
+(* __EDTB44 *)
+(* __EDTB45 *)
+(* __MEMO__F___IO_EM_DI_03 *)
+(* __EDTB46 *)
+(* __MEMO__10___IO_EM_DI_02 *)
+(* __EDTB47 *)
+(* __MEMO__11___IO_EM_DI_07 *)
+(* __EDTB48 *)
+(* __EDTB49 *)
+(* __EDTB50 *)
+(* __EDTB51 *)
+(* __EDTB52 *)
+(* __EDTB53 *)
+(* __EDTB54 *)
+(* __EDTB55 *)
+(* __MEMO__12__M02 *)
+(* __EDTB56 *)
+(* __MEMO__13__M10 *)
+(* __EDTB57 *)
+(* __EDTB58 *)
+(* __MEMO__14__M02 *)
+(* __EDTB59 *)
+(* __EDTB60 *)
+(* __EDTB61 *)
+(* __EDTB62 *)
+(* __EDTB63 *)
+(* __EDTB64 *)
+(* __EDTB65 *)
+(* __EDTB66 *)
+(* __EDTB67 *)
+(* __EDTB68 *)
+(* __EDTB69 *)
+(* __EDTB70 *)
+(* __EDTB71 *)
+(* __MEMO__15___IO_EM_DI_04 *)
+(* __EDTB72 *)
+(* __EDTB73 *)
+(* __EDTB74 *)
+(* __EDTB75 *)
+(* __EDTB76 *)
+(* __EDTB77 *)
+(* __EDTB78 *)
+(* __MEMO__16___IO_EM_DI_05 *)
+(* __EDTB79 *)
+(* __EDTB80 *)
+(* __EDTB81 *)
+(* __EDTB82 *)
+(* __EDTB83 *)
+(* __EDTB84 *)
+(* __MEMO__17___IO_EM_DI_04 *)
+(* __EDTB85 *)
+(* __MEMO__18___IO_EM_DI_04 *)
+(* __EDTB86 *)
+(* __EDTB87 *)
+(* __EDTB88 *)
+(* __EDTB89 *)
+(* __EDTB90 *)
+(* __EDTB91 *)
+(* __EDTB92 *)
+(* __EDTB93 *)
+
